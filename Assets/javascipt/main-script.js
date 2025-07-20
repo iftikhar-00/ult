@@ -1,6 +1,8 @@
-$(function(){
-    $("#header").load("header.html"); 
-    $("#footer").load("footer.html"); 
+const hamburger = document.getElementById('menu-btn');
+const navLinks = document.getElementById('navLinks');
+
+hamburger.addEventListener('click', () => {
+navLinks.classList.toggle('hide');
 });
 
 
@@ -57,3 +59,21 @@ function closePopup() {
   document.getElementById("popup").style.display = "none";
 }
 // dialogue book --------------------------------
+
+// revealing effect ----------------------------------
+window.addEventListener('scroll', () => {
+    const reveals = document.querySelectorAll('.reveal');
+    reveals.forEach((reveal) => {
+      const revealPosition = reveal.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+      if (revealPosition < windowHeight - 100) {
+        reveal.classList.add('visible');
+      }
+      if (revealPosition > windowHeight - 100) {
+        reveal.classList.remove('visible');
+      }
+    });
+  });
+  
+// revealing effect ----------------------------------
+
